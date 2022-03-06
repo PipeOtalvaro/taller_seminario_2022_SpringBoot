@@ -1,0 +1,1 @@
+SELECT * FROM ruta_vuelos.ciudad_origen;
