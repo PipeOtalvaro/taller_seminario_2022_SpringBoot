@@ -3,6 +3,7 @@ package com.vuelos.springboot.vuelos.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
 @Table
 public class Route implements Serializable {
 
@@ -10,6 +11,7 @@ public class Route implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_route")
     private Long id;
+
 
     @Column(name = "id_flight")
     private Long idFlight;

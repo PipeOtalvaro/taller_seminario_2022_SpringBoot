@@ -5,15 +5,17 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-@Table
-public class Flights implements Serializable {
+@Entity
+@Table(name="fligths")
+public class Flight implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_flight")
     private Long id;
 
-    @Column(name = "id_plane")
-    private Long idPlane;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_plane", referencedColumnName = "id_plane")
+    private Plane idPlane;
 
     @Column(name= "take_off_date")
     private LocalDate takeOffDate;
@@ -35,11 +37,11 @@ public class Flights implements Serializable {
         this.id = id;
     }
 
-    public Long getIdPlane() {
+    public Plane getIdPlane() {
         return idPlane;
     }
 
-    public void setIdPlane(Long idPlane) {
+    public void setIdPlane(Plane idPlane) {
         this.idPlane = idPlane;
     }
 

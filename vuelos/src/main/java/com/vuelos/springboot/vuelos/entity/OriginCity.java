@@ -3,6 +3,7 @@ package com.vuelos.springboot.vuelos.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
 @Table(name = "origin_cities")
 public class OriginCity implements Serializable {
     @Id
