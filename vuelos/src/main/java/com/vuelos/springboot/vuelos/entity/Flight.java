@@ -38,15 +38,7 @@ public class Flight implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "flight_id_route")
-    private Route flight;
-
-    public Route getFlight() {
-        return flight;
-    }
-
-    public void setFlight(Route flight) {
-        this.flight = flight;
-    }
+    private Route route;
 
     public Long getId() {
         return id;
@@ -62,6 +54,14 @@ public class Flight implements Serializable {
 
     public void setIdPlane(Plane idPlane) {
         this.idPlane = idPlane;
+    }
+
+    public Route getIdRoute() {
+        return idRoute;
+    }
+
+    public void setIdRoute(Route idRoute) {
+        this.idRoute = idRoute;
     }
 
     public LocalDate getTakeOffDate() {
@@ -102,5 +102,13 @@ public class Flight implements Serializable {
 
     public void setNumberOfPassenger(int numberOfPassenger) {
         this.numberOfPassenger = numberOfPassenger;
+    }
+
+    public Route getRoute() {
+        return route;
+    }
+
+    public void setRoute(Route route) {
+        this.route = route;
     }
 }
