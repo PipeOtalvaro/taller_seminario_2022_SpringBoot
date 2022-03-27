@@ -12,33 +12,44 @@ public class Plane implements Serializable {
     @Column(name ="id_plane")
     private Long idPlane;
 
-    @Column(name = "number_chair", length = 3)
-    private int numberChair;
+    @Column(name = "passenger_capacity", length = 3)
+    private int passengerCapacity;
 
-    @Column(length = 10)
-    private String code;
+    @Column(length = 100)
+    private String airline;
+
+    @Column(length = 100)
+    private String model;
 
     public Long getIdPlane() {
         return idPlane;
     }
 
-    public void setIdPlanes(Long idPlane) {
+    public void setIdPlane(Long idPlane) {
         this.idPlane = idPlane;
     }
 
-    public int getNumberChair() {
-        return numberChair;
+    public int getPassengerCapacity() {
+        return passengerCapacity;
     }
 
-    public void setNumberChair(int numberChair) {
-        this.numberChair = numberChair;
+    public void setPassengerCapacity(int passengerCapacity) {
+        this.passengerCapacity = passengerCapacity;
     }
 
-    public String getCode() {
-        return code;
+    public String getAirline() {
+        return airline;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setAirline(String airline) {
+        this.airline = airline;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 }

@@ -4,11 +4,11 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "origin_cities")
-public class OriginCity implements Serializable {
+@Table(name = "cities")
+public class City implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_origin_city")
+    @Column(name="id_city")
     private Long id;
 
     @Column(length = 100)

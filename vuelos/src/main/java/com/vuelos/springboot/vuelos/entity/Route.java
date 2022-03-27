@@ -2,9 +2,10 @@ package com.vuelos.springboot.vuelos.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
-@Table
+@Table(name="routes")
 public class Route implements Serializable {
 
     @Id
@@ -12,15 +13,17 @@ public class Route implements Serializable {
     @Column(name="id_route")
     private Long id;
 
-
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @Column(name = "id_flight")
-    private Long idFlight;
+    private List<Flight> idFlight;
 
-    @Column(name = "id_origin_city")
-    private Long idOriginCity;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "origin_city", referencedColumnName = "id_city")
+    private City originCity;
 
-    @Column(name = "id_destination_city")
-    private Long idDestinationCity;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "destination_city", referencedColumnName = "id_city")
+    private City destinationCity;
 
     public Long getId() {
         return id;
@@ -30,27 +33,27 @@ public class Route implements Serializable {
         this.id = id;
     }
 
-    public Long getIdFlight() {
+    public List<Flight> getIdFlight() {
         return idFlight;
     }
 
-    public void setIdFlight(Long idFlight) {
+    public void setIdFlight(List<Flight> idFlight) {
         this.idFlight = idFlight;
     }
 
-    public Long getIdOriginCity() {
-        return idOriginCity;
+    public City getOriginCity() {
+        return originCity;
     }
 
-    public void setIdOriginCity(Long idOriginCity) {
-        this.idOriginCity = idOriginCity;
+    public void setOriginCity(City originCity) {
+        this.originCity = originCity;
     }
 
-    public Long getIdDestinationCity() {
-        return idDestinationCity;
+    public City getDestinationCity() {
+        return destinationCity;
     }
 
-    public void setIdDestinationCity(Long idDestinationCity) {
-        this.idDestinationCity = idDestinationCity;
+    public void setDestinationCity(City destinationCity) {
+        this.destinationCity = destinationCity;
     }
 }
